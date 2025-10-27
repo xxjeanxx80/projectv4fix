@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ApiResponseDto } from '../../common/dto/api-response.dto';
 import { RmqClient } from '../../common/messaging/rmq-client';
-import { Role } from '../../common/decorators/roles.decorator';
+import { Role } from '../../common/enums/role.enum';
 import { User } from '../users/entities/user.entity';
 import { CreateSpaDto } from './dto/create-spa.dto';
 import { UpdateSpaDto } from './dto/update-spa.dto';

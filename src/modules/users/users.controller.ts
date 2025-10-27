@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, ForbiddenException, Get, Param, ParseIntPipe, Patch, Post, Req } from '@nestjs/common';
 import type { Request } from 'express';
 import { Auth } from '../../common/decorators/auth.decorator';
-import { Role } from '../../common/decorators/roles.decorator';
+import { Role } from '../../common/enums/role.enum';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UsersService } from './users.service';

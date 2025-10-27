@@ -17,7 +17,7 @@ export class Notification {
   @PrimaryGeneratedColumn({ name: 'notification_id' })
   id: number;
 
-  @Column({ name: 'user_id', nullable: true })
+  @Column({ name: 'user_id', type: 'int', nullable: true })
   userId: number | null;
 
   @Column({ type: 'enum', enum: NotificationChannel })

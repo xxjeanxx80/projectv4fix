@@ -36,7 +36,7 @@ export class Report {
   @Column({ name: 'target_type', type: 'enum', enum: ReportTargetType })
   targetType: ReportTargetType;
 
-  @Column({ name: 'target_id' })
+  @Column({ name: 'target_id', type: 'int' })
   targetId: number;
 
   @Column()
@@ -45,7 +45,7 @@ export class Report {
   @Column({ type: 'enum', enum: ReportStatus, default: ReportStatus.OPEN })
   status: ReportStatus;
 
-  @Column({ name: 'resolution_notes', nullable: true })
+  @Column({ name: 'resolution_notes', type: 'text', nullable: true })
   resolutionNotes: string | null;
 
   @CreateDateColumn({ name: 'created_at' })

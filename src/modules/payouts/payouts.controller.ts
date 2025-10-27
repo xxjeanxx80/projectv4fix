@@ -1,7 +1,7 @@
 import { Body, Controller, Patch, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { Auth } from '../../common/decorators/auth.decorator';
-import { Role } from '../../common/decorators/roles.decorator';
+import { Role } from '../../common/enums/role.enum';
 import { CompletePayoutDto } from './dto/complete-payout.dto';
 import { RequestPayoutDto } from './dto/request-payout.dto';
 import { ReviewPayoutDto } from './dto/review-payout.dto';

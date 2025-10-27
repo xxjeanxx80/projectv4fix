@@ -2,7 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
-import { Role } from '../../../common/decorators/roles.decorator';
+import { Role } from '../../../common/enums/role.enum';
 
 interface JwtPayload {
   sub: number;

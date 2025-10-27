@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Req } 
 import { ApiTags } from '@nestjs/swagger';
 import type { Request } from 'express';
 import { Auth } from '../../common/decorators/auth.decorator';
-import { Role } from '../../common/decorators/roles.decorator';
+import { Role } from '../../common/enums/role.enum';
 import { ApproveSpaDto } from './dto/approve-spa.dto';
 import { CreateSpaDto } from './dto/create-spa.dto';
 import { UpdateSpaDto } from './dto/update-spa.dto';

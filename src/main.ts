@@ -32,12 +32,16 @@ async function bootstrap() {
         scheme: 'bearer',
         bearerFormat: 'JWT',
         in: 'header',
+        name: 'Authorization',
+        description: 'Enter JWT token',
       },
       'access-token',
     )
     .build();
   const document = SwaggerModule.createDocument(app, swaggerConfig);
-  SwaggerModule.setup('api/docs', app, document);
+  SwaggerModule.setup('api/docs', app, document, {
+    swaggerOptions: { persistAuthorization: true },
+  });
 
   const port = configService.get<string>('PORT');
   const parsedPort = port ? parseInt(port, 10) : 3000;
@@ -45,6 +49,7 @@ async function bootstrap() {
   await app.listen(parsedPort);
   app.flushLogs();
   Logger.log(`Application is running on: http://localhost:${parsedPort}`, 'Bootstrap');
+  Logger.log(`Swagger Docs available at: http://localhost:${parsedPort}/api/docs`, 'Bootstrap');
 }
 
 bootstrap();

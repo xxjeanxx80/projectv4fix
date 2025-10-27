@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { Auth } from '../../common/decorators/auth.decorator';
-import { Role } from '../../common/decorators/roles.decorator';
+import { Role } from '../../common/enums/role.enum';
 import { AssignShiftDto } from './dto/assign-shift.dto';
 import { CreateStaffDto } from './dto/create-staff.dto';
 import { RequestTimeOffDto } from './dto/request-time-off.dto';
@@ -9,6 +9,7 @@ import { UpdateStaffDto } from './dto/update-staff.dto';
 import { StaffService } from './staff.service';
 
 @ApiTags('staff')
+@ApiBearerAuth('Authorization')
 @Controller('staff')
 export class StaffController {
   constructor(private readonly staffService: StaffService) {}

@@ -1,4 +1,4 @@
-import { Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
+import { Injectable, Logger, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ApiResponseDto } from '../../common/dto/api-response.dto';
@@ -12,6 +12,7 @@ import { DashboardSnapshot } from './entities/dashboard-snapshot.entity';
 export class DashboardService implements OnModuleInit, OnModuleDestroy {
   private readonly dailyInterval = 24 * 60 * 60 * 1000;
   private intervalRef?: NodeJS.Timeout;
+  private readonly logger = new Logger(DashboardService.name);
 
   constructor(
     @InjectRepository(DashboardSnapshot)
@@ -22,10 +23,15 @@ export class DashboardService implements OnModuleInit, OnModuleDestroy {
   ) {}
 
   async onModuleInit() {
-    await this.generateDailySnapshot(new Date());
-    this.intervalRef = setInterval(() => {
-      void this.generateDailySnapshot(new Date());
-    }, this.dailyInterval);
+    try {
+      await this.generateDailySnapshot(new Date());
+      this.intervalRef = setInterval(() => {
+        void this.generateDailySnapshot(new Date());
+      }, this.dailyInterval);
+    } catch (error) {
+      const trace = error instanceof Error ? error.stack : undefined;
+      this.logger.error('Failed to initialize dashboard snapshots', trace);
+    }
   }
 
   onModuleDestroy() {

@@ -27,25 +27,25 @@ export class Booking {
   @ManyToOne(() => Spa, { eager: true, nullable: false })
   spa: Spa;
 
-  @Column({ name: 'spa_id' })
+  @Column({ name: 'spa_id', type: 'int' })
   spaId: number;
 
   @ManyToOne(() => SpaService, { eager: true, nullable: false })
   service: SpaService;
 
-  @Column({ name: 'service_id' })
+  @Column({ name: 'service_id', type: 'int' })
   serviceId: number;
 
   @ManyToOne(() => User, { eager: true, nullable: false })
   customer: User;
 
-  @Column({ name: 'customer_id' })
+  @Column({ name: 'customer_id', type: 'int' })
   customerId: number;
 
   @ManyToOne(() => Staff, (staff) => staff.bookings, { eager: true, nullable: true })
   staff?: Staff | null;
 
-  @Column({ name: 'staff_id', nullable: true })
+  @Column({ name: 'staff_id', type: 'int', nullable: true })
   staffId?: number | null;
 
   @Column({ type: 'timestamp with time zone', name: 'scheduled_at' })

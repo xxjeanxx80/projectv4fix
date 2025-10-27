@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
-import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { plainToInstance } from 'class-transformer';
 import { Auth } from '../../common/decorators/auth.decorator';
 import { Role } from '../../common/enums/role.enum';
@@ -10,6 +10,7 @@ import { CustomerService } from './customer.service';
 import { Customer } from './entities/customer.entity';
 
 @ApiTags('Customers')
+@ApiBearerAuth('Authorization')
 @Controller('customers')
 export class CustomerController {
   constructor(private readonly customerService: CustomerService) {}

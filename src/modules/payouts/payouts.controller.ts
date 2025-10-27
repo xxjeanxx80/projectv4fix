@@ -1,5 +1,5 @@
 import { Body, Controller, Patch, Post } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { Auth } from '../../common/decorators/auth.decorator';
 import { Role } from '../../common/enums/role.enum';
 import { CompletePayoutDto } from './dto/complete-payout.dto';
@@ -8,6 +8,7 @@ import { ReviewPayoutDto } from './dto/review-payout.dto';
 import { PayoutsService } from './payouts.service';
 
 @ApiTags('payouts')
+@ApiBearerAuth('Authorization')
 @Controller('payouts')
 export class PayoutsController {
   constructor(private readonly payoutsService: PayoutsService) {}

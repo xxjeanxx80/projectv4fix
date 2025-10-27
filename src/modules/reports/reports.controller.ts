@@ -1,4 +1,5 @@
 import { Body, Controller, ForbiddenException, Get, Param, ParseIntPipe, Patch, Post, Req } from '@nestjs/common';
+import { ApiBearerAuth } from '@nestjs/swagger';
 import type { Request } from 'express';
 import { Auth } from '../../common/decorators/auth.decorator';
 import { Role } from '../../common/enums/role.enum';
@@ -6,6 +7,7 @@ import { CreateReportDto } from './dto/create-report.dto';
 import { ResolveReportDto } from './dto/resolve-report.dto';
 import { ReportsService } from './reports.service';
 
+@ApiBearerAuth('Authorization')
 @Controller('reports')
 export class ReportsController {
   constructor(private readonly reportsService: ReportsService) {}

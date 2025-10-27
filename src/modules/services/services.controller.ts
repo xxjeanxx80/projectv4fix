@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { Auth } from '../../common/decorators/auth.decorator';
 import { Role } from '../../common/enums/role.enum';
 import { CreateServiceDto } from './dto/create-service.dto';
@@ -7,6 +7,7 @@ import { UpdateServiceDto } from './dto/update-service.dto';
 import { ServicesService } from './services.service';
 
 @ApiTags('services')
+@ApiBearerAuth('Authorization')
 @Controller('services')
 export class ServicesController {
   constructor(private readonly servicesService: ServicesService) {}

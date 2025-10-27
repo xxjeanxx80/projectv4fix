@@ -35,8 +35,9 @@ async function bootstrap() {
         name: 'Authorization',
         description: 'Enter JWT token',
       },
-      'access-token',
+      'Authorization',
     )
+    .addSecurityRequirements('Authorization')
     .build();
   const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup('api/docs', app, document, {

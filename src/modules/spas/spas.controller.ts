@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Req } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import type { Request } from 'express';
 import { Auth } from '../../common/decorators/auth.decorator';
 import { Role } from '../../common/enums/role.enum';
@@ -9,6 +9,7 @@ import { UpdateSpaDto } from './dto/update-spa.dto';
 import { SpasService } from './spas.service';
 
 @ApiTags('spas')
+@ApiBearerAuth('Authorization')
 @Controller('spas')
 export class SpasController {
   constructor(private readonly spasService: SpasService) {}

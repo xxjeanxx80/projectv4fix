@@ -1,7 +1,7 @@
 import { Body, Controller, ForbiddenException, Get, Param, ParseIntPipe, Patch, Req } from '@nestjs/common';
 import type { Request } from 'express';
 import { Auth } from '../../common/decorators/auth.decorator';
-import { Role } from '../../common/decorators/roles.decorator';
+import { Role } from '../../common/enums/role.enum';
 import { ApproveSpaDto } from '../spas/dto/approve-spa.dto';
 import { AdminService } from './admin.service';
 import { UpdateCampaignStatusDto } from './dto/update-campaign-status.dto';

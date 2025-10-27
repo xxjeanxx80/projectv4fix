@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
 import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { plainToInstance } from 'class-transformer';
 import { Auth } from '../../common/decorators/auth.decorator';
-import { Role } from '../../common/decorators/roles.decorator';
+import { Role } from '../../common/enums/role.enum';
 import { ApiResponseDto } from '../../common/dto/api-response.dto';
 import { CreateCustomerDto } from './dto/request/create-customer.dto';
 import { CustomerResponseDto } from './dto/response/customer-response.dto';

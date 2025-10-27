@@ -1,6 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { Auth } from '../../common/decorators/auth.decorator';
-import { Role } from '../../common/decorators/roles.decorator';
+import { Role } from '../../common/enums/role.enum';
 import { SendNotificationDto } from './dto/send-notification.dto';
 import { NotificationsService } from './notifications.service';
 

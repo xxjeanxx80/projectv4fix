@@ -2,7 +2,7 @@ import { Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ApiResponseDto } from '../../common/dto/api-response.dto';
-import { Role } from '../../common/decorators/roles.decorator';
+import { Role } from '../../common/enums/role.enum';
 import { Booking, BookingStatus } from '../bookings/entities/booking.entity';
 import { Payment, PaymentStatus } from '../payments/entities/payment.entity';
 import { User } from '../users/entities/user.entity';

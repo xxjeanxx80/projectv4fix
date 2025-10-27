@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { Auth } from '../../common/decorators/auth.decorator';
-import { Role } from '../../common/decorators/roles.decorator';
+import { Role } from '../../common/enums/role.enum';
 import { CreateSystemSettingDto } from './dto/create-system-setting.dto';
 import { UpdateSystemSettingDto } from './dto/update-system-setting.dto';
 import { SystemSettingsService } from './system-settings.service';
